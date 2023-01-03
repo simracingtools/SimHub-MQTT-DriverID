@@ -1,7 +1,6 @@
 ﻿using GameReaderCommon;
 using MQTTnet;
 using MQTTnet.Client;
-using MQTTnet.Client.Options;
 using Newtonsoft.Json;
 using SimHub.MQTTPublisher.Settings;
 using SimHub.Plugins;
@@ -11,10 +10,10 @@ using System.Windows.Media;
 
 namespace SimHub.MQTTPublisher
 {
-    [PluginDescription("MQTT Publisher")]
-    [PluginAuthor("Wotever")]
-    [PluginName("MQTT Publisher")]
-    public class SimHubMQTTPublisherPlugin : IPlugin, IDataPlugin, IWPFSettingsV2
+    [PluginDescription("MQTT DriverID")]
+    [PluginAuthor("robbyb67")]
+    [PluginName("MQTT DriverID")]
+    public class SimHubMQTTDriverIdPlugin : IPlugin, IDataPlugin, IWPFSettingsV2
     {
         public SimHubMQTTPublisherPluginSettings Settings;
 
@@ -31,12 +30,12 @@ namespace SimHub.MQTTPublisher
         /// <summary>
         /// Gets the left menu icon. Icon must be 24x24 and compatible with black and white display.
         /// </summary>
-        public ImageSource PictureIcon => this.ToIcon(Properties.Resources.sdkmenuicon);
+        public ImageSource PictureIcon => this.ToIcon(MQTTDriverID.Properties.Resources.sdkmenuicon);
 
         /// <summary>
         /// Gets a short plugin title to show in left menu. Return null if you want to use the title as defined in PluginName attribute.
         /// </summary>
-        public string LeftMenuTitle => "MQTT Publisher";
+        public string LeftMenuTitle => "MQTT DriverID";
 
         /// <summary>
         /// Called one time per game data update, contains all normalized game data,
@@ -51,6 +50,11 @@ namespace SimHub.MQTTPublisher
         {
             if (data.GameRunning)
             {
+                if (!mqttClient.IsConnected)
+                {
+                    Logging.Current.Info("MQTT reconnect to " + Settings.Server);
+                    mqttClient.ReconnectAsync();
+                }
                 var applicationMessage = new MqttApplicationMessageBuilder()
                .WithTopic(Settings.Topic)
                .WithPayload(JsonConvert.SerializeObject(new Payload.PayloadRoot(data, UserSettings)))
@@ -90,7 +94,7 @@ namespace SimHub.MQTTPublisher
         /// <param name="pluginManager"></param>
         public void Init(PluginManager pluginManager)
         {
-            SimHub.Logging.Current.Info("Starting plugin");
+            SimHub.Logging.Current.Info("Starting MQTT DriverID plugin");
 
             // Load settings
             Settings = this.ReadCommonSettings<SimHubMQTTPublisherPluginSettings>("GeneralSettings", () => new SimHubMQTTPublisherPluginSettings());
@@ -107,11 +111,19 @@ namespace SimHub.MQTTPublisher
             var newmqttClient = mqttFactory.CreateMqttClient();
 
             var mqttClientOptions = new MqttClientOptionsBuilder()
-               .WithTcpServer(Settings.Server)
-               .WithCredentials(Settings.Login, Settings.Password)
-               .Build();
+                .WithClientId(UserSettings.UserId.ToString())
+                .WithTcpServer(Settings.Server)
+                .WithCredentials(Settings.Login, Settings.Password)
+                .Build();
 
-            newmqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+            try
+            {
+                newmqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None).Wait();
+            }
+            catch(System.Exception e)
+            {
+                Logging.Current.Error("MQTT connection error: " + e.Message);
+            }
 
             var oldMqttClient = this.mqttClient;
 
@@ -120,6 +132,15 @@ namespace SimHub.MQTTPublisher
             if (oldMqttClient != null)
             {
                 oldMqttClient.Dispose();
+            }
+
+            if (mqttClient.IsConnected)
+            {
+                Logging.Current.Info("DriverID connected to " + Settings.Server);
+            } 
+            else
+            {
+                Logging.Current.Warn("DriverID not connected to " + Settings.Server);
             }
         }
     }

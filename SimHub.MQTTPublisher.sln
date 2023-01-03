@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimHub.MQTTPublisher", "SimHub.MQTTPublisher.csproj", "{833040C9-FE5E-4CCF-B21D-71979E049B6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimHub.MQTTDriverID", "SimHub.MQTTDriverID.csproj", "{833040C9-FE5E-4CCF-B21D-71979E049B6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9755652-1963-445E-9D98-CF17C4567A6F}
 	EndGlobalSection
 EndGlobal

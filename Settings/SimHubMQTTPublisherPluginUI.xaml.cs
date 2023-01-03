@@ -8,7 +8,7 @@ namespace SimHub.MQTTPublisher.Settings
     /// </summary>
     public partial class SimHubMQTTPublisherPluginUI : UserControl
     {
-        public SimHubMQTTPublisherPluginUI(SimHubMQTTPublisherPlugin simHubMQTTPublisherPlugin)
+        public SimHubMQTTPublisherPluginUI(SimHubMQTTDriverIdPlugin simHubMQTTPublisherPlugin)
         {
             InitializeComponent();
             SimHubMQTTPublisherPlugin = simHubMQTTPublisherPlugin;
@@ -27,7 +27,7 @@ namespace SimHub.MQTTPublisher.Settings
 
         private SimHubMQTTPublisherPluginUIModel Model { get; }
 
-        private SimHubMQTTPublisherPlugin SimHubMQTTPublisherPlugin { get; }
+        private SimHubMQTTDriverIdPlugin SimHubMQTTPublisherPlugin { get; }
 
         private void Apply_Settings(object sender, System.Windows.RoutedEventArgs e)
         {
