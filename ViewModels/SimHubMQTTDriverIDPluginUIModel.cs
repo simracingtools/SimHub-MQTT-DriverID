@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace SimHub.MQTTPublisher.ViewModels
 {
-    internal class SimHubMQTTPublisherPluginUIModel : INotifyPropertyChanged
+    internal class SimHubMQTTDriverIDPluginUIModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

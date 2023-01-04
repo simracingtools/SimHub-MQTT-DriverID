@@ -5,7 +5,7 @@ namespace SimHub.MQTTPublisher
     /// <summary>
     /// Settings class, make sure it can be correctly serialized using JSON.net
     /// </summary>
-    public class SimHubMQTTPublisherPluginSettings
+    public class SimHubMQTTDriverIDPluginSettings
     {
         public string Server { get; set; } = "localhost";
 

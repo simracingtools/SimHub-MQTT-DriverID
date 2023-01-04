@@ -13,7 +13,7 @@ namespace SimHub.MQTTPublisher.Settings
             InitializeComponent();
             SimHubMQTTPublisherPlugin = simHubMQTTPublisherPlugin;
 
-            this.Model = new SimHubMQTTPublisherPluginUIModel()
+            this.Model = new SimHubMQTTDriverIDPluginUIModel()
             {
                 Server = simHubMQTTPublisherPlugin.Settings.Server,
                 Topic = simHubMQTTPublisherPlugin.Settings.Topic,
@@ -25,7 +25,7 @@ namespace SimHub.MQTTPublisher.Settings
             this.DataContext = Model;
         }
 
-        private SimHubMQTTPublisherPluginUIModel Model { get; }
+        private SimHubMQTTDriverIDPluginUIModel Model { get; }
 
         private SimHubMQTTDriverIdPlugin SimHubMQTTPublisherPlugin { get; }
 

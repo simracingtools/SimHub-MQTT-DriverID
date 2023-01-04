@@ -15,7 +15,7 @@ namespace SimHub.MQTTPublisher
     [PluginName("MQTT DriverID")]
     public class SimHubMQTTDriverIdPlugin : IPlugin, IDataPlugin, IWPFSettingsV2
     {
-        public SimHubMQTTPublisherPluginSettings Settings;
+        public SimHubMQTTDriverIDPluginSettings Settings;
 
         public SimHubMQTTPublisherPluginUserSettings UserSettings { get; private set; }
 
@@ -97,7 +97,7 @@ namespace SimHub.MQTTPublisher
             SimHub.Logging.Current.Info("Starting MQTT DriverID plugin");
 
             // Load settings
-            Settings = this.ReadCommonSettings<SimHubMQTTPublisherPluginSettings>("GeneralSettings", () => new SimHubMQTTPublisherPluginSettings());
+            Settings = this.ReadCommonSettings<SimHubMQTTDriverIDPluginSettings>("GeneralSettings", () => new SimHubMQTTDriverIDPluginSettings());
 
             UserSettings = this.ReadCommonSettings<SimHubMQTTPublisherPluginUserSettings>("UserSettings", () => new SimHubMQTTPublisherPluginUserSettings());
 
