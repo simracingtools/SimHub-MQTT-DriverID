@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SimHub.MQTTPublisher.Settings.SimHubMQTTPublisherPluginUI"
+﻿<UserControl x:Class="SimHub.MQTTPublisher.Settings.SimHubMQTTDriverIDPluginUI"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -22,6 +22,8 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0">MQTT Server</Label>
@@ -36,10 +38,23 @@
                 <Label Grid.Row="3">MQTT Topic</Label>
                 <TextBox Margin="4" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Topic}"></TextBox>
 
-                <Label Grid.Row="4">User ID (readonly)</Label>
-                <TextBox Margin="4" Grid.Row="4" Grid.Column="1" Text="{Binding Path=UserId}" IsReadOnly="true"></TextBox>
+                <Label Grid.Row="4">Message Update Threshold</Label>
+                <ComboBox Margin="4" Grid.Row="4" Grid.Column="1" Text="{Binding Path=UpdateTreshold}">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">50</ComboBoxItem>
+                    <ComboBoxItem>100</ComboBoxItem>
+                    <ComboBoxItem>250</ComboBoxItem>
+                    <ComboBoxItem>500</ComboBoxItem>
+                    <ComboBoxItem>1000</ComboBoxItem>
+                </ComboBox>
 
-                <styles:SHButtonPrimary Margin="4"  Grid.Row="5" Click="Apply_Settings">Apply setting</styles:SHButtonPrimary>
+                <Label Grid.Row="5">User ID (readonly)</Label>
+                <TextBox Margin="4" Grid.Row="5" Grid.Column="1" Text="{Binding Path=UserId}"></TextBox>
+
+                <Label Grid.Row="6">iRacing ID</Label>
+                <TextBox Margin="4" Grid.Row="6" Grid.Column="1" Text="{Binding Path=IracingId}"></TextBox>
+
+                <styles:SHButtonPrimary Margin="4"  Grid.Row="7" Click="Apply_Settings">Apply setting</styles:SHButtonPrimary>
             </Grid>
         </styles:SHSection>
     </Grid>

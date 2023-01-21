@@ -16,7 +16,11 @@ namespace SimHub.MQTTPublisher.ViewModels
 
         private string _password;
 
-        private Guid _UserId;
+        private int _updateThreshold;
+
+        private long _iracingId;
+
+        private string _UserId;
 
         public string Server
         {
@@ -58,7 +62,27 @@ namespace SimHub.MQTTPublisher.ViewModels
             }
         }
 
-        public Guid UserId
+        public int UpdateTreshold
+        {
+            get => _updateThreshold;
+            set
+            {
+                _updateThreshold = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public long IracingId
+        {
+            get => _iracingId;
+            set
+            {
+                _iracingId = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string UserId
         {
             get => _UserId;
             set

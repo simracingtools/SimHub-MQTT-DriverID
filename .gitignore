@@ -261,3 +261,5 @@ paket-files/
 __pycache__/
 *.pyc
 /Endeca.Export.Navigation/.nuget/NuGet.exe
+/Libs
+/MigrationBackup/ad4a6de3/SimHub.MQTTDriverID

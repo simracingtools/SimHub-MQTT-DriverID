@@ -35,9 +35,15 @@
       <HintPath>Libs\GameReaderCommon.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ICarsReader">
+      <HintPath>Libs\ICarsReader.dll</HintPath>
+    </Reference>
     <Reference Include="InputManagerCS">
       <HintPath>Libs\InputManagerCS.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="iRacingSDK">
+      <HintPath>Libs\iRacingSDK.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>Libs\log4net.dll</HintPath>
@@ -71,11 +77,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Payload\Car.cs" />
+    <Compile Include="comm\MqttRelay.cs" />
+    <Compile Include="Payload\Authorize.cs" />
+    <Compile Include="Payload\LapData.cs" />
+    <Compile Include="Payload\MQTTMessage.cs" />
     <Compile Include="Payload\PayloadRoot.cs" />
-    <Compile Include="Payload\TrackInformation.cs" />
-    <Compile Include="Settings\SimHubMQTTPublisherPluginUI.xaml.cs">
-      <DependentUpon>SimHubMQTTPublisherPluginUI.xaml</DependentUpon>
+    <Compile Include="Payload\RunData.cs" />
+    <Compile Include="Payload\SessionData.cs" />
+    <Compile Include="Payload\SessionInfo.cs" />
+    <Compile Include="Payload\Telemetry.cs" />
+    <Compile Include="PluginProperties\PropertyHandler.cs" />
+    <Compile Include="Settings\SimHubMQTTDriverIDPluginUI.xaml.cs">
+      <DependentUpon>SimHubMQTTDriverIDPluginUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="SimHubMQTTDriverIdPlugin.cs" />
     <Compile Include="SimHubMQTTDriverIDPluginSettings.cs" />
@@ -85,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="IracingSimState.cs" />
     <Compile Include="ViewModels\SimHubMQTTDriverIDPluginUIModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,12 +107,14 @@
       <Generator>MSBuild:Compile</Generator>
       <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
     </Page>
-    <Page Include="Settings\SimHubMQTTPublisherPluginUI.xaml">
+    <Page Include="Settings\SimHubMQTTDriverIDPluginUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mqttidicon.png" />
+    <None Include="Resources\mqttidicon.bmp" />
     <Content Include="sdkmenuicon.png" />
   </ItemGroup>
   <ItemGroup>

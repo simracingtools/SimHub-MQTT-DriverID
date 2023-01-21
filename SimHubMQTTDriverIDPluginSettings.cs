@@ -13,12 +13,15 @@ namespace SimHub.MQTTPublisher
 
         public string Login { get; set; } = "admin";
 
-        public string Password { get; set; } = "admin";
+        public string Password { get; set; }
+
+        public int UpdateThreshold { get; set; } = 50;
     }
 
     public class SimHubMQTTPublisherPluginUserSettings
     {
-        public Guid UserId { get; set; } = Guid.NewGuid();
+        public long IracingId { get; set; }
+        public string UserId { get; set; }
 
     }
 }

@@ -63,6 +63,16 @@ namespace SimHub.MQTTDriverID.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mqttidicon {
+            get {
+                object obj = ResourceManager.GetObject("mqttidicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdkmenuicon {
             get {
                 object obj = ResourceManager.GetObject("sdkmenuicon", resourceCulture);

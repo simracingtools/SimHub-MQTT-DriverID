@@ -1,12 +1,10 @@
 ﻿using GameReaderCommon;
-using MQTTnet;
-using MQTTnet.Client;
-using Newtonsoft.Json;
 using SimHub.MQTTPublisher.Settings;
 using SimHub.Plugins;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Media;
+using SimHub.MQTTDriverID.comm;
+using SimHub.MQTTDriverID.PluginProperties;
+using SimHub.MQTTDriverID.Payload;
 
 namespace SimHub.MQTTPublisher
 {
@@ -15,12 +13,16 @@ namespace SimHub.MQTTPublisher
     [PluginName("MQTT DriverID")]
     public class SimHubMQTTDriverIdPlugin : IPlugin, IDataPlugin, IWPFSettingsV2
     {
+        public IRacingReader.DataSampleEx IRData { get; set; }
+
         public SimHubMQTTDriverIDPluginSettings Settings;
 
         public SimHubMQTTPublisherPluginUserSettings UserSettings { get; private set; }
 
-        private MqttFactory mqttFactory;
-        private IMqttClient mqttClient;
+        private int eventCounter = 0;
+        private IracingSimState irSimState = new IracingSimState();
+        private PropertyHandler PropertyHandler;
+        public MqttRelay MqttRelay { get; private set; }
 
         /// <summary>
         /// Instance of the current plugin manager
@@ -30,7 +32,7 @@ namespace SimHub.MQTTPublisher
         /// <summary>
         /// Gets the left menu icon. Icon must be 24x24 and compatible with black and white display.
         /// </summary>
-        public ImageSource PictureIcon => this.ToIcon(MQTTDriverID.Properties.Resources.sdkmenuicon);
+        public ImageSource PictureIcon => this.ToIcon(MQTTDriverID.Properties.Resources.mqttidicon);
 
         /// <summary>
         /// Gets a short plugin title to show in left menu. Return null if you want to use the title as defined in PluginName attribute.
@@ -48,19 +50,43 @@ namespace SimHub.MQTTPublisher
         /// <param name="data">Current game data, including current and previous data frame.</param>
         public void DataUpdate(PluginManager pluginManager, ref GameData data)
         {
-            if (data.GameRunning)
+            if (!MqttRelay.Authorized)
             {
-                if (!mqttClient.IsConnected)
-                {
-                    Logging.Current.Info("MQTT reconnect to " + Settings.Server);
-                    mqttClient.ReconnectAsync();
-                }
-                var applicationMessage = new MqttApplicationMessageBuilder()
-               .WithTopic(Settings.Topic)
-               .WithPayload(JsonConvert.SerializeObject(new Payload.PayloadRoot(data, UserSettings)))
-               .Build();
+                return;
+            }
 
-                Task.Run(async () => await mqttClient.PublishAsync(applicationMessage, CancellationToken.None)).Wait();
+            if (data.GameRunning && data.GameName == "IRacing")
+            {
+                IRData = data.NewData.GetRawDataObject() as IRacingReader.DataSampleEx;
+
+                MqttRelay.ReconnectIfNeeded();
+
+                if (data.OldData.CompletedLaps != data.NewData.CompletedLaps && irSimState.IsInCar(UserSettings.IracingId))
+                {
+                    MqttRelay.sendMessage(new MQTTMessage(data, UserSettings, IRData, new SessionData(IRData)));
+                }
+
+                if (eventCounter < Settings.UpdateThreshold)
+                {
+                    eventCounter++;
+                    return;
+                }
+                eventCounter = 0;
+                if (irSimState.updateSimState(IRData) && irSimState.IsInCar(UserSettings.IracingId))
+                {
+                    Logging.Current.Info("MQTT DriverID session change");
+                    MqttRelay.sendMessage(new MQTTMessage(data, UserSettings, IRData, new SessionData(IRData)));
+
+                    if (irSimState.DriverChange)
+                    {
+                        Logging.Current.Info("MQTT DriverID driver change from " + irSimState.PreviousDriverId + " to " + irSimState.DriverId);
+                    }
+                }
+                if (irSimState.IsInCar(UserSettings.IracingId))
+                {
+                    MqttRelay.sendMessage(new MQTTMessage(data, UserSettings, IRData, new Telemetry(IRData)));
+                }
+                PropertyHandler.SetDriverInCar(irSimState.IsInCar(UserSettings.IracingId));
             }
         }
 
@@ -74,7 +100,8 @@ namespace SimHub.MQTTPublisher
             // Save settings
             this.SaveCommonSettings("GeneralSettings", Settings);
             this.SaveCommonSettings("UserSettings", UserSettings);
-            mqttClient.Dispose();
+
+            MqttRelay.Disconnect();
         }
 
         /// <summary>
@@ -84,7 +111,7 @@ namespace SimHub.MQTTPublisher
         /// <returns></returns>
         public System.Windows.Controls.Control GetWPFSettingsControl(PluginManager pluginManager)
         {
-            return new SimHubMQTTPublisherPluginUI(this);
+            return new SimHubMQTTDriverIDPluginUI(this);
         }
 
         /// <summary>
@@ -98,50 +125,12 @@ namespace SimHub.MQTTPublisher
 
             // Load settings
             Settings = this.ReadCommonSettings<SimHubMQTTDriverIDPluginSettings>("GeneralSettings", () => new SimHubMQTTDriverIDPluginSettings());
-
             UserSettings = this.ReadCommonSettings<SimHubMQTTPublisherPluginUserSettings>("UserSettings", () => new SimHubMQTTPublisherPluginUserSettings());
 
-            this.mqttFactory = new MqttFactory();
+            PropertyHandler = new PropertyHandler(pluginManager);
+            MqttRelay = new MqttRelay(Settings, UserSettings, PropertyHandler);
 
-            CreateMQTTClient();
-        }
-
-        internal void CreateMQTTClient()
-        {
-            var newmqttClient = mqttFactory.CreateMqttClient();
-
-            var mqttClientOptions = new MqttClientOptionsBuilder()
-                .WithClientId(UserSettings.UserId.ToString())
-                .WithTcpServer(Settings.Server)
-                .WithCredentials(Settings.Login, Settings.Password)
-                .Build();
-
-            try
-            {
-                newmqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None).Wait();
-            }
-            catch(System.Exception e)
-            {
-                Logging.Current.Error("MQTT connection error: " + e.Message);
-            }
-
-            var oldMqttClient = this.mqttClient;
-
-            mqttClient = newmqttClient;
-
-            if (oldMqttClient != null)
-            {
-                oldMqttClient.Dispose();
-            }
-
-            if (mqttClient.IsConnected)
-            {
-                Logging.Current.Info("DriverID connected to " + Settings.Server);
-            } 
-            else
-            {
-                Logging.Current.Warn("DriverID not connected to " + Settings.Server);
-            }
+            MqttRelay.Connect(Settings.Login, Settings.Password);
         }
     }
 }
