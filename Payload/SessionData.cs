@@ -9,19 +9,16 @@ namespace SimHub.MQTTDriverID.Payload
 {
     public class SessionData : PayloadRoot
     {
-        public iRacingSDK._CarSetup carSetup { get; set; }
-        public iRacingSDK.SessionData._WeekendInfo weekendInfo { get; set; }
-        public iRacingSDK.SessionData._DriverInfo driverInfo { get; set; }
-        public iRacingSDK.SessionData._SplitTimeInfo splitTimeInfo { get; set; }
-        public iRacingSDK.SessionData._SessionInfo sessionInfo { get; set; }
+        public iRacingSDK.SessionData sessionData { get; set; }
 
         public SessionData(DataSampleEx irData)
         {
-            weekendInfo = irData.SessionData.WeekendInfo;
-            sessionInfo = irData.SessionData.SessionInfo;
-            driverInfo = irData.SessionData.DriverInfo;
-            splitTimeInfo = irData.SessionData.SplitTimeInfo;
-            carSetup = irData.SessionData.CarSetup;
+            sessionData = new iRacingSDK.SessionData();
+            sessionData.WeekendInfo = irData.SessionData.WeekendInfo;
+            sessionData.SessionInfo = irData.SessionData.SessionInfo;
+            sessionData.DriverInfo = irData.SessionData.DriverInfo;
+            sessionData.SplitTimeInfo = irData.SessionData.SplitTimeInfo;
+            sessionData.CarSetup = irData.SessionData.CarSetup;
         }
     }
 }

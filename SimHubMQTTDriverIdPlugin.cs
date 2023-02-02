@@ -64,6 +64,7 @@ namespace SimHub.MQTTPublisher
                 if (data.OldData.CompletedLaps != data.NewData.CompletedLaps && irSimState.IsInCar(UserSettings.IracingId))
                 {
                     MqttRelay.sendMessage(new MQTTMessage(data, UserSettings, IRData, new SessionData(IRData)));
+                    Logging.Current.Info("Lap change " + data.OldData.CompletedLaps + " to " + data.NewData.CompletedLaps);
                 }
 
                 if (eventCounter < Settings.UpdateThreshold)
