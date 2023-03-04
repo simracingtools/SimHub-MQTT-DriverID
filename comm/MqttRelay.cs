@@ -87,8 +87,7 @@ namespace SimHub.MQTTDriverID.comm
 
                 if (topic.Equals(defaultTopic + "/" + userSettings.UserId))
                 {
-                    if (payload.Equals("Auth" +
-                        "orized"))
+                    if (payload.Equals("Authorized"))
                     {
                         Authorized = true;
                         propertyHandler.SetMqttAuthorized(Authorized);
