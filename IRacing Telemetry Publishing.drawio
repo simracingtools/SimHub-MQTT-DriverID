@@ -1,1 +1,144 @@
-<mxfile host="app.diagrams.net" modified="2023-03-04T14:31:44.039Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="7pNzqkyJUf3naK97dGxu" version="17.5.0" type="github"><diagram id="ZA4WhcHR0eJYWrGIet5F" name="Page-1">lZTBctowEIafxkdmQE5IeoyB0HSaDh2Y5izQIisje11ZDtCn7zpe2RicTnpi+bTSrv795SieZcelk0X6jApsJMbqGMXzSIjJVHyhn5qcmIxvRUO0M4pZB9bmD4REppVRUPYSPaL1pujDHeY57HyPSefw0E/bo+1XLaSGK7DeSXtNX4zyaUPvxV3Hv4LRaag8mfKNMxmS+SZlKhUezlC8iOKZQ/RNlB1nYGv1gi7NvscPVtvGHOT+Mxsk6Hzxsnj69uuHXZa/R2mulyM+5U3aii8czUT0kKxNllbbOk6SSEwtVUi2jiJdRy0JoEl//rnZzJ15A/c0X9lKmzwkUlfbbvO7Gv4UJE59Zima0JpyWGyk01DfaEzAyi3YFZbGG8yJ7eiy4GiBinhDY/p+kZAZpeqDE2mNHtzxwAsei7abcxWDJJQOxzPEqi4BM/DuRCm8esMDDhYPAz90fmlNkJ55RdwylOxR3R7djZECnuR/TFVcT/VSdHJjUYcZqupdr1fw/hQsfh9A6+2bQa3+6alPCzi51mtILmYOrPRksv5TH5CQ663QULttsVF4ujyuu/4BuN+X5L7LCbRNDw2F/nbPuEnvvobx4i8=</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-03-04T17:03:23.569Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="a0p5Ayh67RXrO1dB2qZ-" version="17.5.0" type="github">
+  <diagram id="ZA4WhcHR0eJYWrGIet5F" name="Page-1">
+    <mxGraphModel dx="1629" dy="1052" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aegnEWEIJVNlGsq-hngG-1" value="«Simhub»&lt;br&gt;&lt;b&gt;SimhubMQTTDriverIDPlugin&lt;/b&gt;" style="html=1;dropTarget=0;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="120" width="220" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="aegnEWEIJVNlGsq-hngG-2" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="aegnEWEIJVNlGsq-hngG-1" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-1" value="Properties&#xa;&#xa;* MqttConnected&#xa;* MqttAuthorized&#xa;* MqttError&#xa;* DriverInCar&#xa;* RaceControlMessage&#xa;* to be extended" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-4" target="wVuGDqA5NguN4GWopvMv-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="543" />
+              <mxPoint x="440" y="383" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-37" value="&lt;div&gt;Publish MQTT messages&lt;/div&gt;&lt;div&gt;with jsonified&amp;nbsp;&lt;b&gt;MQTTMessage&lt;/b&gt;&lt;/div&gt;&lt;div&gt;payload on topic&lt;/div&gt;&lt;div&gt;/&amp;lt;DefaultTopic&amp;gt;&lt;/div&gt;" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wVuGDqA5NguN4GWopvMv-36">
+          <mxGeometry x="0.0794" relative="1" as="geometry">
+            <mxPoint x="-60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-4" value="DataUpdate" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;html=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="530" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.011;entryY=0.269;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-5" target="wVuGDqA5NguN4GWopvMv-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="463" />
+              <mxPoint x="320" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-10" value="&lt;div style=&quot;text-align: left&quot;&gt;Connect and subscribe to&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/&amp;lt;DefaultTopic&amp;gt;/&amp;lt;UserId&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/racecontrol/#&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/echoes&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wVuGDqA5NguN4GWopvMv-9">
+          <mxGeometry x="0.1313" y="-2" relative="1" as="geometry">
+            <mxPoint x="-6" y="58" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-5" value="MqttRelay" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;html=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="450" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-14" value="Check if client is authorized" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-6" target="wVuGDqA5NguN4GWopvMv-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-6" value="«Server»&lt;br&gt;&lt;b&gt;Mqtt Broker&lt;/b&gt;" style="html=1;dropTarget=0;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="540" y="300" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-7" value="" style="shape=module;jettyWidth=8;jettyHeight=4;html=0;" vertex="1" parent="wVuGDqA5NguN4GWopvMv-6">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-8" value="Settings&#xa;&#xa;* (Mqtt-) Server&#xa;* (Mqtt Default-) Topic &#xa;* Login&#xa;* Password&#xa;* IracingId&#xa;* UserId / AccessToken" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-12" value="«Server»&lt;br&gt;&lt;b&gt;Identity Provider&lt;br&gt;(Keycloak)&lt;br&gt;&lt;/b&gt;" style="html=1;dropTarget=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="130" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-13" value="" style="shape=module;jettyWidth=8;jettyHeight=4;html=0;" vertex="1" parent="wVuGDqA5NguN4GWopvMv-12">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-17" value="&lt;div style=&quot;text-align: left&quot;&gt;Connect and Subscribe to&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/&amp;lt;DefaultTopic&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;Send messages to&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/&amp;lt;DefaultTopic&amp;gt;/&amp;lt;UserId&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/racecontrol&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;/echoes (Testing purposes)&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-15" target="wVuGDqA5NguN4GWopvMv-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-15" value="«Server»&lt;br&gt;&lt;b&gt;Backend Applikation&lt;/b&gt;" style="html=1;dropTarget=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="590" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-16" value="" style="shape=module;jettyWidth=8;jettyHeight=4;html=0;" vertex="1" parent="wVuGDqA5NguN4GWopvMv-15">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-18" value="IRacing Telemetry Publishing from SimhubMQTTDriverID Plugin " style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="760" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-19" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MQTTMessage&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ type: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ version: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ sessionId: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ subsessionId: Long&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ sessionNumber: Long&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ legacySessionName: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ clientId: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ teamId: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ accessToken: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ payload: &lt;b&gt;PayloadRoot&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="170" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-23" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;PayloadRoot&lt;/b&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="720" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-25" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;Telemetry&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ telemetry: iRacingSDK.Telemetry&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="309" y="820" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-26" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-19" target="wVuGDqA5NguN4GWopvMv-23">
+          <mxGeometry x="-1" y="3" relative="1" as="geometry">
+            <mxPoint x="330" y="680" as="sourcePoint" />
+            <mxPoint x="490" y="680" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="863" />
+              <mxPoint x="260" y="735" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-27" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.186;exitY=1.033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.548;entryY=-0.057;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-23" target="wVuGDqA5NguN4GWopvMv-25">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="680" as="sourcePoint" />
+            <mxPoint x="490" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=none;endFill=0;dashed=1;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-28" target="wVuGDqA5NguN4GWopvMv-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-28" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;SessionData&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ sessionData: iRacingSDK.SessionData&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="820" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-29" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-23" target="wVuGDqA5NguN4GWopvMv-28">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="680" as="sourcePoint" />
+            <mxPoint x="490" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-30" value="&lt;h1&gt;Important&lt;/h1&gt;&lt;p&gt;The iRacingSDK.SessionData attribute&amp;nbsp;is only partly filled.&lt;br&gt;Provided elements are:&lt;br&gt;&lt;ul&gt;&lt;li&gt;WeekEndInfo&lt;/li&gt;&lt;li&gt;SessionInfo&lt;/li&gt;&lt;li&gt;DriverInfo&lt;/li&gt;&lt;li&gt;SplitTimeInfo&lt;/li&gt;&lt;li&gt;CarSetup&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="940" width="190" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-32" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;Authorize&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ clientId: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="730" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-33" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="wVuGDqA5NguN4GWopvMv-32">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="590" y="730" as="sourcePoint" />
+            <mxPoint x="490" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="1" source="wVuGDqA5NguN4GWopvMv-34" target="wVuGDqA5NguN4GWopvMv-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wVuGDqA5NguN4GWopvMv-34" value="&lt;h1&gt;Remarks&lt;/h1&gt;&lt;div&gt;The &lt;i&gt;&lt;b&gt;type&lt;/b&gt;&lt;/i&gt; attribute is automatically filled with the &lt;b&gt;&lt;i&gt;payload&lt;/i&gt;&lt;/b&gt; class name, so it is one of &lt;b&gt;Telemetry&lt;/b&gt;, &lt;b&gt;SessionData&lt;/b&gt; or &lt;b&gt;Authorize&lt;/b&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;&lt;b&gt;sessionId&lt;/b&gt;&lt;/i&gt;, &lt;i&gt;&lt;b&gt;subsessionId&lt;/b&gt;&lt;/i&gt;, &lt;i&gt;&lt;b&gt;sessionNumber&lt;/b&gt;&lt;/i&gt;, &lt;i&gt;&lt;b&gt;teamId&lt;/b&gt;&lt;/i&gt; and &lt;i&gt;&lt;b&gt;clientId&lt;/b&gt;&lt;/i&gt; are filled by values from iRacing data.&lt;br&gt;&lt;br&gt;&lt;b&gt;&lt;i&gt;accessToken&lt;/i&gt;&lt;/b&gt; is filled with the UserId value of Plugin Serttings.&lt;br&gt;&lt;br&gt;legacySessionName is build internally by the pattern &amp;lt;&lt;b&gt;&lt;i&gt;teamName&lt;/i&gt;&lt;/b&gt;&amp;gt;@&amp;lt;&lt;b&gt;&lt;i&gt;sessionId&lt;/i&gt;&lt;/b&gt;&amp;gt;#&amp;lt;&lt;b&gt;&lt;i&gt;subsessionId&lt;/i&gt;&lt;/b&gt;&amp;gt;#&amp;lt;&lt;b&gt;&lt;i&gt;sessionNumber&lt;/i&gt;&lt;/b&gt;&amp;gt;&lt;/div&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="940" width="389" height="210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
